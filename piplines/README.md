@@ -1,4 +1,4 @@
-﻿# Pipelines
+# Pipelines
 This is test task
 
 
@@ -23,9 +23,9 @@ This is test task
     <br />
     <!--<a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>-->
     ·
-    <a href="https://github.com/nkiruhin/pipeline/issues">Report Bug</a>
+    <a href="https://github.com/nkiruhin/pipelines/issues">Report Bug</a>
     ·
-    <a href="https://github.com/pipeline/SalaryCalculatorReact/issues">Request Feature</a>
+    <a href="https://github.com/pipelines/issues">Request Feature</a>
   </p>
 </p>
 
@@ -73,9 +73,13 @@ You must install node.js from https://nodejs.org/en/download/
 
 Prerequisites for this project you can find on links
 .Net Core 2.2
+
 for Windows:
+
 https://docs.microsoft.com/en-us/dotnet/core/windows-prerequisites?tabs=netcore2x
+
 for Linux:
+
 https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x
 
 
@@ -87,7 +91,7 @@ https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x
 
 1. Clone the repo
 ```sh
-git clone https://github.com/nkiruhin/SalaryCalculatorReact/SalaryCalculatorReact.git
+git clone https://github.com/nkiruhin/pipelines/pipelines.git
 ```
 2. Install NPM packages
 ```sh
@@ -141,7 +145,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Nikolay Kirukhin  - nkiruhin@yandex.ru
 
-Project Link: [https://github.com/nkiruhin/pipeline](https://github.com/nkiruhin/SalaryCalculatorReact)
+Project Link: [https://github.com/nkiruhin/pipelines](https://github.com/nkiruhin/pipelines)
 
 
 
@@ -159,6 +163,7 @@ Project Link: [https://github.com/nkiruhin/pipeline](https://github.com/nkiruhin
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/screenshot.png
+
 
 
 
