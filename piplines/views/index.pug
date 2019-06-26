@@ -1,5 +1,11 @@
 ﻿extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 #{username} welcome to app!
+  p Pls, select action
+  li 
+    a(href='/tasks') Tasks (create,delete,edit and list tasks)
+  li 
+    a(href='/pipelines') Pipelines (create, run and calculate average time pipelines),
+  li 
+    a(href='/users') Change Name

@@ -1,0 +1,48 @@
+﻿extends layout
+
+block content
+   h2 #{pipeline.Name} include tasks:
+   div(id='message')
+   table(class="table table-sm")
+    each task in pipeline.Tasks 
+     tr 
+     td= task.Name
+     td= task.AverageTime
+     td 
+      form(action = '#', onsubmit='DeleteTask(event, this)')
+       input(type='text',name='id',hidden,value= pipeline._id)
+       input(type='text',name='TaskId',hidden,value= task._id)
+       button(type='submit', class='btn btn-danger')  Delete   
+    
+    table
+     tr
+      td
+       form(action = 'pipelines/runPipeline', id='runPipeline', method='Post')
+        input(type='text',name='id',hidden,value= pipeline._id)
+        button(type='submit',id='runButton',class='btn btn-primary') Run Pipeline
+      td
+       form(action = 'pipelines/calcAverageTime', id='calcAverageTime', method='Post')
+        input(type='text',name='id',hidden,value= pipeline._id)
+        button(type='submit',class='btn btn-primary') Calculate Average Time
+    
+    div(id='AverageTime')
+
+    h List Task
+     table(class="table table-sm")
+      tr
+       th Name
+       th Average Time
+      each task in tasks
+        tr 
+         td= task.Name
+         td= task.AverageTime
+         td
+          if(pipeline.Tasks.find(x => x._id.toString() === task._id.toString())===undefined)
+            form(action='#', onsubmit='addTask(event,this)') 
+             input(type='text',name='TaskId',hidden,value= task._id)
+             input(type='text',name='id',hidden,value= pipeline._id)
+             button(type='submit' class='btn btn-dark' ) Add to Pipeline
+   script.
+     document.addEventListener("DOMContentLoaded", function(event) {
+        addListenerPipe()
+     });

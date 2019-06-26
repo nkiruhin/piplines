@@ -1,0 +1,9 @@
+﻿extends layout
+
+block content
+  h4 Enter your Name
+  form(action='users', method='Post')
+   div(class="form-group")
+    input(type='text', name='Name', required, class='form-control', placeholder="Enter your name, this name will be use for actions in application")
+   div(class="form-group")
+    button(type='submit' class="btn btn-primary") Continue...

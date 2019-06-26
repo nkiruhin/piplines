@@ -1,16 +1,39 @@
 ﻿'use strict';
-var debug = require('debug');
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const debug = require('debug');
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+const routes = require('./routes/index');
+const users = require('./routes/users');
+const tasks = require('./routes/tasks');
+const pipelines = require('./routes/pipelines');
 
-var app = express();
+const app = express();
+
+// Create username local constiable
+
+app.locals.username = '';
+
+// Mongoose setup
+
+const config = require('./dbconfig.js');
+const mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise;
+
+// Connecting to the database
+
+mongoose.connect(config.url, {
+        useNewUrlParser: true
+    }).then(() => {
+        console.log("Successfully connected to the database");
+    }).catch(err => {
+    console.log('Could not connect to the database. Exiting now...', err);
+    process.exit();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,10 +49,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-
+app.use('/tasks', tasks);
+app.use('/pipelines', pipelines);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    var err = new Error('Not Found');
+    const err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
@@ -60,6 +84,6 @@ app.use(function (err, req, res, next) {
 
 app.set('port', process.env.PORT || 3000);
 
-var server = app.listen(app.get('port'), function () {
+const server = app.listen(app.get('port'), function () {
     debug('Express server listening on port ' + server.address().port);
 });

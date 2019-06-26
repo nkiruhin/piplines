@@ -1,0 +1,10 @@
+﻿{
+  "append": true,
+  "errFile": "piplines/error.log",
+  "logFile": "piplines/forever.log",
+  "outFile": "piplines/out.log",
+  "script": "app.js",
+  "sourceDir": "piplines",
+  "uid": "app",
+  "watch": true
+}

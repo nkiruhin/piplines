@@ -1,0 +1,29 @@
+﻿extends layout
+
+block content
+ div(id='content')
+    h2 Tasks
+    form(method='Post')
+     div(class="form-group")
+      label(for='Name') Enter name
+      input(type='text',name='Name', required, class='form-control', placeholder="Enter name for new task")
+     div(class="form-group")
+      label(for='AverageTime') Enter AverageTime,ms
+      input(type='number',min='1000', name='AverageTime', required, class='form-control', placeholder="Enter task's average time in miliseconds")
+     div(class="form-group")
+      button(type='submit', class="btn btn-primary") Add Task
+    h5 Tasks List
+    table(class="table table-sm")
+     tr
+      th Name
+      th Average Time
+       each task in tasks
+        tr 
+         td= task.Name
+         td= task.AverageTime
+         td 
+          if(task.Author === author)
+           form(id='Delete', method='Post' onsubmit='Delete(event, this)')
+            input(type='text',name='id',hidden,value= task._id)
+            button(type='submit', class='btn btn-danger')  Delete
+    

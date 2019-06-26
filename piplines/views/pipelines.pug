@@ -1,0 +1,26 @@
+﻿extends layout
+
+block content
+  h2 Pipelines
+  form(method='Post')
+   div(class="form-group")
+    label(for='Pipelines') Select or create new pipeline
+    select(id='Pipelines', name='id',class='form-control')
+     option(value = 1) Create pipeline
+      each pipe in pipelines
+       if(pipeline !== undefined && pipelines.find(x => x._id.toString() === pipeline._id.toString())!==undefined)
+        option(value = pipe._id selected)= pipe.Name
+       else
+        option(value = pipe._id)= pipe.Name
+   div(class="form-group")
+    label(for='Name') Enter name pipeline
+    input(type='text',name='Name', required, class='form-control') 
+   div(class="form-group") 
+    button(type='submit' class="btn btn-primary") Create
+  div(id='pipeline')
+   if( pipeline!==undefined )
+    include pipeline.pug
+  script.
+   document.addEventListener("DOMContentLoaded", function(event) {
+        addListener()
+   });

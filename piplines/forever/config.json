@@ -1,0 +1,25 @@
+{
+  //"root": "C:\\Users\\Николай\\.forever",
+  "pidPath": "C:\\Users\\Николай\\.forever\\pids",
+  "sockPath": "C:\\Users\\Николай\\.forever\\sock",
+  "loglength": 100,
+  "logstream": false,
+  "append": true,
+  "errFile": "./error.log",
+  "logFile": "./forever.log",
+  "outFile": "./out.log",
+  "script": "app.js",
+  "sourceDir": "./",
+  "uid": "app",
+  "watch": true,
+  "columns": [
+    "uid",
+    "command",
+    "script",
+    "forever",
+    "pid",
+    "id",
+    "logfile",
+    "uptime"
+  ]
+}

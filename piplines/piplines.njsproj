@@ -5,7 +5,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>piplines</Name>
     <RootNamespace>piplines</RootNamespace>
-    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -31,16 +31,46 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="controllers\pipelines.js" />
+    <Compile Include="controllers\users.js" />
+    <Compile Include="controllers\tasks.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="dbconfig.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="models\pipe.model.js" />
     <Compile Include="routes\index.js" />
+    <Compile Include="routes\pipelines.js" />
+    <Compile Include="routes\tasks.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="routes\users.js" />
+    <Compile Include="models\task.model.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="public\javascripts\site.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="forever\config.json" />
+    <Content Include="forever\development.json">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="package.json" />
     <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
+    <Content Include="views\pipeline.pug" />
+    <Content Include="views\user.pug" />
+    <Content Include="views\pipelines.pug" />
+    <Content Include="views\tasks.pug" />
     <Content Include="views\index.pug" />
     <Content Include="views\layout.pug" />
     <Content Include="views\error.pug" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="forever\" />
+    <Folder Include="controllers\" />
+    <Folder Include="models\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
